@@ -5,20 +5,19 @@
   <title>@yield('title','weibo App') --Laravel 新手入门</title>
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="caicai/app.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" ></script>
+  <script src="bootstrap/js/bootstrap.min.js" ></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/">Weibo App</a>
-      <ul class="navbar-nav justify-content-end">
-        <li class="nav-item"><a class="nav-link" href="/help">帮助</a></li>
-        <li class="nav-item" ><a class="nav-link" href="#">登录</a></li>
-      </ul>
-    </div>
-  </nav>
+    @include('layouts._header')
 
   <div class="container">
     @yield('content')
+
+    @include('layouts._footer')
   </div>
+
+
 </body>
 </html>
