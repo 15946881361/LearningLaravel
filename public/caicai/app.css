@@ -1,0 +1,14 @@
+body {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+
+body .jumbotron{
+  padding: 40px 20px;
+  background-color: #ececec;
+}
+
+nav.navbar.navbar-expand-lg {
+  margin-bottom: 20px;
+}
