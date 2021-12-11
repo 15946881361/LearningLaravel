@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/caicai/app.css">
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" ></script>
-  <script src="/bootstrap/js/bootstrap.min.js" ></script>
 </head>
 <body>
     @include('layouts._header')
@@ -20,6 +18,7 @@
     </div>
   </div>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" ></script>
+  <script src="/bootstrap/js/bootstrap.min.js" ></script>
 </body>
 </html>
