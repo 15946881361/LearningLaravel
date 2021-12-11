@@ -7,6 +7,17 @@
         <h5>注册</h5>
       </div>
       <div class="card-body">
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+
         <form method="POST" action="{{ route('user.store') }}">
             <div class="form-group">
               <label for="name">名称：</label>
