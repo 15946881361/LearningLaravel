@@ -12,6 +12,20 @@
             </a>
             <h1>{{ $user->name }}</h1>
           </section>
+          <section class="status">
+            @if ($statuses->count() > 0)
+              <ul class="list-unstyled">
+                @foreach ($statuses as $status)
+                  @include('statuses._status')
+                @endforeach
+              </ul>
+              <div class="mt-5">
+                {!! $statuses->render() !!}
+              </div>
+            @else
+              <p>没有数据！</p>
+            @endif
+          </section>
         </div>
       </div>
     </div>
