@@ -9,6 +9,11 @@
           <section class="user_info">
             @include('layouts._user_info',$user)
           </section>
+
+          @if (Auth::check())
+              @include('layouts._follow_form', $user)
+          @endif
+
           <section class="stats mt-2">
             @include('layouts._stats',  $user)
           </section>

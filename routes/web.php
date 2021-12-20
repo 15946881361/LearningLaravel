@@ -33,7 +33,9 @@ Route::get('password/reset/{token}','PasswordController@showResetForm')->name('p
 Route::post('password/reset','PasswordController@reset')->name('password.update');
 //微博发布删除
 Route::resource('statuses', 'StatusController', ['only'=>['store', 'destroy']]);
-//关注列表
+//关注列表 粉丝列表
 Route::get('user/{user}/followings', 'UserController@followings')->name('user.followings');
-//粉丝列表
 Route::get('user/{user}/followers', 'UserController@followers')->name('user.followers');
+//关注 取消关注
+Route::post('user/followers/{user}', 'FollowersController@store')->name('followers.store');
+Route::delete('user/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
