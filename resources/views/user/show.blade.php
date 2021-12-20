@@ -11,7 +11,7 @@
           </section>
 
           @if (Auth::check())
-              @include('layouts._follow_form', $user)
+              @include('layouts._follow_form')
           @endif
 
           <section class="stats mt-2">
