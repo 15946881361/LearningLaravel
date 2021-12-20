@@ -98,18 +98,18 @@ class UserController extends Controller
         return back();
     }
 
-    protected function sendEmailConfirmationTo($user)
+    public function followings(User $user)
     {
-        $view = 'email.confirm';
-        $data = compact('user');
-        //$from = 'CaiCai@qq.com';
-        //$name = 'CaiCai';
-        $to = $user->email;
-        $subject = '感谢注册 Weibo 应用！请确认您的邮箱.';
+        $users = $user->followings()->paginate(30);
+        $title = $user->name . '关注的人';
+        return view('user.show_follow', compact('users','title'));
+    }
 
-        Mail::send($view, $data, function ($message) use ($to, $subject) {
-            $message->to($to)->subject($subject);
-        });
+    public function followers(User $user)
+    {
+        $users = $user->followers()->paginate(30);
+        $title = $user->name . '的粉丝';
+        return view('user.show_follow', compact('users', 'title'));
     }
 
     public function confirmEmail($token)
@@ -123,5 +123,19 @@ class UserController extends Controller
         Auth::login($user);
         session()->flash('success','恭喜你，账号激活成功');
         return redirect()->route('user.show',[$user]);
+    }
+
+    protected function sendEmailConfirmationTo($user)
+    {
+        $view = 'email.confirm';
+        $data = compact('user');
+        //$from = 'CaiCai@qq.com';
+        //$name = 'CaiCai';
+        $to = $user->email;
+        $subject = '感谢注册 Weibo 应用！请确认您的邮箱.';
+
+        Mail::send($view, $data, function ($message) use ($to, $subject) {
+            $message->to($to)->subject($subject);
+        });
     }
 }
